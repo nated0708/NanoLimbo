@@ -9,7 +9,7 @@ bind:
 
 # Max number of players can join to server
 # Set -1 to make it infinite
-maxPlayers: 100
+maxPlayers: 101
 
 # Server's data in servers list
 ping:
