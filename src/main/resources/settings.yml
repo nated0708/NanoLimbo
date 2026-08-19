@@ -106,7 +106,9 @@ infoForwarding:
   type: NONE
   secret: "<YOUR_SECRET_HERE>"
   tokens:
-  - "<BUNGEE_GUARD_TOKEN>"
+    - "<BUNGEE_GUARD_TOKEN>"
+  tokenProperties:
+    - "bungeeguard-token"
 
 # Read timeout for connections in milliseconds
 readTimeout: 30000
