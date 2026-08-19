@@ -20,6 +20,7 @@ package ua.nanit.limbo.server.data;
 import lombok.Data;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
+import java.util.Collections;
 import java.util.List;
 
 @Data
@@ -28,9 +29,20 @@ public class InfoForwarding {
     private Type type;
     private byte[] secretKey;
     private List<String> tokens;
+    private List<String> tokenProperties;
 
     public boolean hasToken(@Nullable String token) {
         return tokens != null && token != null && tokens.contains(token);
+    }
+
+    /**
+     * Handshake property names that may carry the BungeeGuard token.
+     * Falls back to the standard name so existing configs keep working.
+     */
+    public List<String> getTokenProperties() {
+        return tokenProperties == null || tokenProperties.isEmpty()
+                ? Collections.singletonList("bungeeguard-token")
+                : tokenProperties;
     }
 
     public boolean isNone() {
